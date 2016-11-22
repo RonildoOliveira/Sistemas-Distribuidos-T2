@@ -15,55 +15,39 @@ public final class Calculadora {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface RequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:br.ufc.quixada.calc.Request)
+      // @@protoc_insertion_point(interface_extends:ufc.sd.calc.Request)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    boolean hasId();
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>required double n1 = 2;</code>
-     */
-    boolean hasN1();
-    /**
-     * <code>required double n1 = 2;</code>
+     * <code>optional double n1 = 2;</code>
      */
     double getN1();
 
     /**
-     * <code>required double n2 = 3;</code>
-     */
-    boolean hasN2();
-    /**
-     * <code>required double n2 = 3;</code>
+     * <code>optional double n2 = 3;</code>
      */
     double getN2();
 
     /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+     * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
      */
-    java.util.List<ufc.sd.calc.Calculadora.Request.Operacao> getOpList();
+    int getOpValue();
     /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+     * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
      */
-    int getOpCount();
-    /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
-     */
-    ufc.sd.calc.Calculadora.Request.Operacao getOp(int index);
+    ufc.sd.calc.Calculadora.Request.Operacao getOp();
   }
   /**
-   * Protobuf type {@code br.ufc.quixada.calc.Request}
+   * Protobuf type {@code ufc.sd.calc.Request}
    */
   public  static final class Request extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:br.ufc.quixada.calc.Request)
+      // @@protoc_insertion_point(message_implements:ufc.sd.calc.Request)
       RequestOrBuilder {
     // Use Request.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -73,13 +57,13 @@ public final class Calculadora {
       id_ = 0;
       n1_ = 0D;
       n2_ = 0D;
-      op_ = java.util.Collections.emptyList();
+      op_ = 0;
     }
 
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Request(
         com.google.protobuf.CodedInputStream input,
@@ -87,8 +71,6 @@ public final class Calculadora {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -98,58 +80,30 @@ public final class Calculadora {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               id_ = input.readInt32();
               break;
             }
             case 17: {
-              bitField0_ |= 0x00000002;
+
               n1_ = input.readDouble();
               break;
             }
             case 25: {
-              bitField0_ |= 0x00000004;
+
               n2_ = input.readDouble();
               break;
             }
             case 32: {
               int rawValue = input.readEnum();
-              ufc.sd.calc.Calculadora.Request.Operacao value = ufc.sd.calc.Calculadora.Request.Operacao.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                  op_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000008;
-                }
-                op_.add(rawValue);
-              }
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                ufc.sd.calc.Calculadora.Request.Operacao value = ufc.sd.calc.Calculadora.Request.Operacao.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(4, rawValue);
-                } else {
-                  if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                    op_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField0_ |= 0x00000008;
-                  }
-                  op_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
+
+              op_ = rawValue;
               break;
             }
           }
@@ -160,27 +114,23 @@ public final class Calculadora {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          op_ = java.util.Collections.unmodifiableList(op_);
-        }
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Request_descriptor;
+      return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Request_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Request_fieldAccessorTable
+      return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ufc.sd.calc.Calculadora.Request.class, ufc.sd.calc.Calculadora.Request.Builder.class);
     }
 
     /**
-     * Protobuf enum {@code br.ufc.quixada.calc.Request.Operacao}
+     * Protobuf enum {@code ufc.sd.calc.Request.Operacao}
      */
     public enum Operacao
         implements com.google.protobuf.ProtocolMessageEnum {
@@ -200,6 +150,7 @@ public final class Calculadora {
        * <code>DIV = 3;</code>
        */
       DIV(3),
+      UNRECOGNIZED(-1),
       ;
 
       /**
@@ -221,6 +172,10 @@ public final class Calculadora {
 
 
       public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
         return value;
       }
 
@@ -275,6 +230,9 @@ public final class Calculadora {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
         return VALUES[desc.getIndex()];
       }
 
@@ -284,20 +242,13 @@ public final class Calculadora {
         this.value = value;
       }
 
-      // @@protoc_insertion_point(enum_scope:br.ufc.quixada.calc.Request.Operacao)
+      // @@protoc_insertion_point(enum_scope:ufc.sd.calc.Request.Operacao)
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
     public int getId() {
       return id_;
@@ -306,13 +257,7 @@ public final class Calculadora {
     public static final int N1_FIELD_NUMBER = 2;
     private double n1_;
     /**
-     * <code>required double n1 = 2;</code>
-     */
-    public boolean hasN1() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required double n1 = 2;</code>
+     * <code>optional double n1 = 2;</code>
      */
     public double getN1() {
       return n1_;
@@ -321,47 +266,26 @@ public final class Calculadora {
     public static final int N2_FIELD_NUMBER = 3;
     private double n2_;
     /**
-     * <code>required double n2 = 3;</code>
-     */
-    public boolean hasN2() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required double n2 = 3;</code>
+     * <code>optional double n2 = 3;</code>
      */
     public double getN2() {
       return n2_;
     }
 
     public static final int OP_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> op_;
-    private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, ufc.sd.calc.Calculadora.Request.Operacao> op_converter_ =
-            new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, ufc.sd.calc.Calculadora.Request.Operacao>() {
-              public ufc.sd.calc.Calculadora.Request.Operacao convert(java.lang.Integer from) {
-                ufc.sd.calc.Calculadora.Request.Operacao result = ufc.sd.calc.Calculadora.Request.Operacao.valueOf(from);
-                return result == null ? ufc.sd.calc.Calculadora.Request.Operacao.SOM : result;
-              }
-            };
+    private int op_;
     /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+     * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
      */
-    public java.util.List<ufc.sd.calc.Calculadora.Request.Operacao> getOpList() {
-      return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, ufc.sd.calc.Calculadora.Request.Operacao>(op_, op_converter_);
+    public int getOpValue() {
+      return op_;
     }
     /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+     * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
      */
-    public int getOpCount() {
-      return op_.size();
-    }
-    /**
-     * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
-     */
-    public ufc.sd.calc.Calculadora.Request.Operacao getOp(int index) {
-      return op_converter_.convert(op_.get(index));
+    public ufc.sd.calc.Calculadora.Request.Operacao getOp() {
+      ufc.sd.calc.Calculadora.Request.Operacao result = ufc.sd.calc.Calculadora.Request.Operacao.valueOf(op_);
+      return result == null ? ufc.sd.calc.Calculadora.Request.Operacao.UNRECOGNIZED : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -370,37 +294,24 @@ public final class Calculadora {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasN1()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasN2()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         output.writeInt32(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (n1_ != 0D) {
         output.writeDouble(2, n1_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (n2_ != 0D) {
         output.writeDouble(3, n2_);
       }
-      for (int i = 0; i < op_.size(); i++) {
-        output.writeEnum(4, op_.get(i));
+      if (op_ != ufc.sd.calc.Calculadora.Request.Operacao.SOM.getNumber()) {
+        output.writeEnum(4, op_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -408,28 +319,22 @@ public final class Calculadora {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (n1_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, n1_);
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (n2_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, n2_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < op_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeEnumSizeNoTag(op_.get(i));
-        }
-        size += dataSize;
-        size += 1 * op_.size();
+      if (op_ != ufc.sd.calc.Calculadora.Request.Operacao.SOM.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(4, op_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -446,27 +351,17 @@ public final class Calculadora {
       ufc.sd.calc.Calculadora.Request other = (ufc.sd.calc.Calculadora.Request) obj;
 
       boolean result = true;
-      result = result && (hasId() == other.hasId());
-      if (hasId()) {
-        result = result && (getId()
-            == other.getId());
-      }
-      result = result && (hasN1() == other.hasN1());
-      if (hasN1()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getN1())
-            == java.lang.Double.doubleToLongBits(
-                other.getN1()));
-      }
-      result = result && (hasN2() == other.hasN2());
-      if (hasN2()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getN2())
-            == java.lang.Double.doubleToLongBits(
-                other.getN2()));
-      }
-      result = result && op_.equals(other.op_);
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (getId()
+          == other.getId());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getN1())
+          == java.lang.Double.doubleToLongBits(
+              other.getN1()));
+      result = result && (
+          java.lang.Double.doubleToLongBits(getN2())
+          == java.lang.Double.doubleToLongBits(
+              other.getN2()));
+      result = result && op_ == other.op_;
       return result;
     }
 
@@ -477,24 +372,16 @@ public final class Calculadora {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
-      }
-      if (hasN1()) {
-        hash = (37 * hash) + N1_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getN1()));
-      }
-      if (hasN2()) {
-        hash = (37 * hash) + N2_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getN2()));
-      }
-      if (getOpCount() > 0) {
-        hash = (37 * hash) + OP_FIELD_NUMBER;
-        hash = (53 * hash) + op_.hashCode();
-      }
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + N1_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getN1()));
+      hash = (37 * hash) + N2_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getN2()));
+      hash = (37 * hash) + OP_FIELD_NUMBER;
+      hash = (53 * hash) + op_;
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -578,20 +465,20 @@ public final class Calculadora {
       return builder;
     }
     /**
-     * Protobuf type {@code br.ufc.quixada.calc.Request}
+     * Protobuf type {@code ufc.sd.calc.Request}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:br.ufc.quixada.calc.Request)
+        // @@protoc_insertion_point(builder_implements:ufc.sd.calc.Request)
         ufc.sd.calc.Calculadora.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Request_descriptor;
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Request_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Request_fieldAccessorTable
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Request_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 ufc.sd.calc.Calculadora.Request.class, ufc.sd.calc.Calculadora.Request.Builder.class);
       }
@@ -614,19 +501,19 @@ public final class Calculadora {
       public Builder clear() {
         super.clear();
         id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         n1_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         n2_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        op_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+
+        op_ = 0;
+
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Request_descriptor;
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Request_descriptor;
       }
 
       public ufc.sd.calc.Calculadora.Request getDefaultInstanceForType() {
@@ -643,26 +530,10 @@ public final class Calculadora {
 
       public ufc.sd.calc.Calculadora.Request buildPartial() {
         ufc.sd.calc.Calculadora.Request result = new ufc.sd.calc.Calculadora.Request(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.n1_ = n1_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
         result.n2_ = n2_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          op_ = java.util.Collections.unmodifiableList(op_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
         result.op_ = op_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -704,40 +575,23 @@ public final class Calculadora {
 
       public Builder mergeFrom(ufc.sd.calc.Calculadora.Request other) {
         if (other == ufc.sd.calc.Calculadora.Request.getDefaultInstance()) return this;
-        if (other.hasId()) {
+        if (other.getId() != 0) {
           setId(other.getId());
         }
-        if (other.hasN1()) {
+        if (other.getN1() != 0D) {
           setN1(other.getN1());
         }
-        if (other.hasN2()) {
+        if (other.getN2() != 0D) {
           setN2(other.getN2());
         }
-        if (!other.op_.isEmpty()) {
-          if (op_.isEmpty()) {
-            op_ = other.op_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureOpIsMutable();
-            op_.addAll(other.op_);
-          }
-          onChanged();
+        if (other.op_ != 0) {
+          setOpValue(other.getOpValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasId()) {
-          return false;
-        }
-        if (!hasN1()) {
-          return false;
-        }
-        if (!hasN2()) {
-          return false;
-        }
         return true;
       }
 
@@ -758,35 +612,28 @@ public final class Calculadora {
         }
         return this;
       }
-      private int bitField0_;
 
       private int id_ ;
       /**
-       * <code>required int32 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public Builder setId(int value) {
-        bitField0_ |= 0x00000001;
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         id_ = 0;
         onChanged();
         return this;
@@ -794,31 +641,25 @@ public final class Calculadora {
 
       private double n1_ ;
       /**
-       * <code>required double n1 = 2;</code>
-       */
-      public boolean hasN1() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required double n1 = 2;</code>
+       * <code>optional double n1 = 2;</code>
        */
       public double getN1() {
         return n1_;
       }
       /**
-       * <code>required double n1 = 2;</code>
+       * <code>optional double n1 = 2;</code>
        */
       public Builder setN1(double value) {
-        bitField0_ |= 0x00000002;
+        
         n1_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double n1 = 2;</code>
+       * <code>optional double n1 = 2;</code>
        */
       public Builder clearN1() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         n1_ = 0D;
         onChanged();
         return this;
@@ -826,124 +667,88 @@ public final class Calculadora {
 
       private double n2_ ;
       /**
-       * <code>required double n2 = 3;</code>
-       */
-      public boolean hasN2() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required double n2 = 3;</code>
+       * <code>optional double n2 = 3;</code>
        */
       public double getN2() {
         return n2_;
       }
       /**
-       * <code>required double n2 = 3;</code>
+       * <code>optional double n2 = 3;</code>
        */
       public Builder setN2(double value) {
-        bitField0_ |= 0x00000004;
+        
         n2_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double n2 = 3;</code>
+       * <code>optional double n2 = 3;</code>
        */
       public Builder clearN2() {
-        bitField0_ = (bitField0_ & ~0x00000004);
+        
         n2_ = 0D;
         onChanged();
         return this;
       }
 
-      private java.util.List<java.lang.Integer> op_ =
-        java.util.Collections.emptyList();
-      private void ensureOpIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          op_ = new java.util.ArrayList<java.lang.Integer>(op_);
-          bitField0_ |= 0x00000008;
-        }
+      private int op_ = 0;
+      /**
+       * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
+       */
+      public int getOpValue() {
+        return op_;
       }
       /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+       * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
        */
-      public java.util.List<ufc.sd.calc.Calculadora.Request.Operacao> getOpList() {
-        return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, ufc.sd.calc.Calculadora.Request.Operacao>(op_, op_converter_);
+      public Builder setOpValue(int value) {
+        op_ = value;
+        onChanged();
+        return this;
       }
       /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+       * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
        */
-      public int getOpCount() {
-        return op_.size();
+      public ufc.sd.calc.Calculadora.Request.Operacao getOp() {
+        ufc.sd.calc.Calculadora.Request.Operacao result = ufc.sd.calc.Calculadora.Request.Operacao.valueOf(op_);
+        return result == null ? ufc.sd.calc.Calculadora.Request.Operacao.UNRECOGNIZED : result;
       }
       /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+       * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
        */
-      public ufc.sd.calc.Calculadora.Request.Operacao getOp(int index) {
-        return op_converter_.convert(op_.get(index));
-      }
-      /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
-       */
-      public Builder setOp(
-          int index, ufc.sd.calc.Calculadora.Request.Operacao value) {
+      public Builder setOp(ufc.sd.calc.Calculadora.Request.Operacao value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        ensureOpIsMutable();
-        op_.set(index, value.getNumber());
+        
+        op_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
-       */
-      public Builder addOp(ufc.sd.calc.Calculadora.Request.Operacao value) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureOpIsMutable();
-        op_.add(value.getNumber());
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
-       */
-      public Builder addAllOp(
-          java.lang.Iterable<? extends ufc.sd.calc.Calculadora.Request.Operacao> values) {
-        ensureOpIsMutable();
-        for (ufc.sd.calc.Calculadora.Request.Operacao value : values) {
-          op_.add(value.getNumber());
-        }
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated .br.ufc.quixada.calc.Request.Operacao op = 4;</code>
+       * <code>optional .ufc.sd.calc.Request.Operacao op = 4;</code>
        */
       public Builder clearOp() {
-        op_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        
+        op_ = 0;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
-      // @@protoc_insertion_point(builder_scope:br.ufc.quixada.calc.Request)
+      // @@protoc_insertion_point(builder_scope:ufc.sd.calc.Request)
     }
 
-    // @@protoc_insertion_point(class_scope:br.ufc.quixada.calc.Request)
+    // @@protoc_insertion_point(class_scope:ufc.sd.calc.Request)
     private static final ufc.sd.calc.Calculadora.Request DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new ufc.sd.calc.Calculadora.Request();
@@ -953,7 +758,7 @@ public final class Calculadora {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Request>
+    private static final com.google.protobuf.Parser<Request>
         PARSER = new com.google.protobuf.AbstractParser<Request>() {
       public Request parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -979,33 +784,25 @@ public final class Calculadora {
   }
 
   public interface ReplyOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:br.ufc.quixada.calc.Reply)
+      // @@protoc_insertion_point(interface_extends:ufc.sd.calc.Reply)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    boolean hasId();
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>required double res = 2;</code>
-     */
-    boolean hasRes();
-    /**
-     * <code>required double res = 2;</code>
+     * <code>optional double res = 2;</code>
      */
     double getRes();
   }
   /**
-   * Protobuf type {@code br.ufc.quixada.calc.Reply}
+   * Protobuf type {@code ufc.sd.calc.Reply}
    */
   public  static final class Reply extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:br.ufc.quixada.calc.Reply)
+      // @@protoc_insertion_point(message_implements:ufc.sd.calc.Reply)
       ReplyOrBuilder {
     // Use Reply.newBuilder() to construct.
     private Reply(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -1019,7 +816,7 @@ public final class Calculadora {
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
-      return this.unknownFields;
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
     private Reply(
         com.google.protobuf.CodedInputStream input,
@@ -1027,8 +824,6 @@ public final class Calculadora {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
         boolean done = false;
         while (!done) {
@@ -1038,19 +833,18 @@ public final class Calculadora {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!input.skipField(tag)) {
                 done = true;
               }
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
+
               id_ = input.readInt32();
               break;
             }
             case 17: {
-              bitField0_ |= 0x00000002;
+
               res_ = input.readDouble();
               break;
             }
@@ -1062,33 +856,25 @@ public final class Calculadora {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Reply_descriptor;
+      return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Reply_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Reply_fieldAccessorTable
+      return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Reply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               ufc.sd.calc.Calculadora.Reply.class, ufc.sd.calc.Calculadora.Reply.Builder.class);
     }
 
-    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>required int32 id = 1;</code>
-     */
-    public boolean hasId() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 id = 1;</code>
+     * <code>optional int32 id = 1;</code>
      */
     public int getId() {
       return id_;
@@ -1097,13 +883,7 @@ public final class Calculadora {
     public static final int RES_FIELD_NUMBER = 2;
     private double res_;
     /**
-     * <code>required double res = 2;</code>
-     */
-    public boolean hasRes() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required double res = 2;</code>
+     * <code>optional double res = 2;</code>
      */
     public double getRes() {
       return res_;
@@ -1115,27 +895,18 @@ public final class Calculadora {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      if (!hasId()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasRes()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         output.writeInt32(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (res_ != 0D) {
         output.writeDouble(2, res_);
       }
-      unknownFields.writeTo(output);
     }
 
     public int getSerializedSize() {
@@ -1143,15 +914,14 @@ public final class Calculadora {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (id_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (res_ != 0D) {
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, res_);
       }
-      size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1168,19 +938,12 @@ public final class Calculadora {
       ufc.sd.calc.Calculadora.Reply other = (ufc.sd.calc.Calculadora.Reply) obj;
 
       boolean result = true;
-      result = result && (hasId() == other.hasId());
-      if (hasId()) {
-        result = result && (getId()
-            == other.getId());
-      }
-      result = result && (hasRes() == other.hasRes());
-      if (hasRes()) {
-        result = result && (
-            java.lang.Double.doubleToLongBits(getRes())
-            == java.lang.Double.doubleToLongBits(
-                other.getRes()));
-      }
-      result = result && unknownFields.equals(other.unknownFields);
+      result = result && (getId()
+          == other.getId());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getRes())
+          == java.lang.Double.doubleToLongBits(
+              other.getRes()));
       return result;
     }
 
@@ -1191,15 +954,11 @@ public final class Calculadora {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      if (hasId()) {
-        hash = (37 * hash) + ID_FIELD_NUMBER;
-        hash = (53 * hash) + getId();
-      }
-      if (hasRes()) {
-        hash = (37 * hash) + RES_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-            java.lang.Double.doubleToLongBits(getRes()));
-      }
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + RES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getRes()));
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1283,20 +1042,20 @@ public final class Calculadora {
       return builder;
     }
     /**
-     * Protobuf type {@code br.ufc.quixada.calc.Reply}
+     * Protobuf type {@code ufc.sd.calc.Reply}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:br.ufc.quixada.calc.Reply)
+        // @@protoc_insertion_point(builder_implements:ufc.sd.calc.Reply)
         ufc.sd.calc.Calculadora.ReplyOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Reply_descriptor;
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Reply_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Reply_fieldAccessorTable
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Reply_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 ufc.sd.calc.Calculadora.Reply.class, ufc.sd.calc.Calculadora.Reply.Builder.class);
       }
@@ -1319,15 +1078,15 @@ public final class Calculadora {
       public Builder clear() {
         super.clear();
         id_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         res_ = 0D;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ufc.sd.calc.Calculadora.internal_static_br_ufc_quixada_calc_Reply_descriptor;
+        return ufc.sd.calc.Calculadora.internal_static_ufc_sd_calc_Reply_descriptor;
       }
 
       public ufc.sd.calc.Calculadora.Reply getDefaultInstanceForType() {
@@ -1344,17 +1103,8 @@ public final class Calculadora {
 
       public ufc.sd.calc.Calculadora.Reply buildPartial() {
         ufc.sd.calc.Calculadora.Reply result = new ufc.sd.calc.Calculadora.Reply(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.id_ = id_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.res_ = res_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1396,24 +1146,17 @@ public final class Calculadora {
 
       public Builder mergeFrom(ufc.sd.calc.Calculadora.Reply other) {
         if (other == ufc.sd.calc.Calculadora.Reply.getDefaultInstance()) return this;
-        if (other.hasId()) {
+        if (other.getId() != 0) {
           setId(other.getId());
         }
-        if (other.hasRes()) {
+        if (other.getRes() != 0D) {
           setRes(other.getRes());
         }
-        this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasId()) {
-          return false;
-        }
-        if (!hasRes()) {
-          return false;
-        }
         return true;
       }
 
@@ -1434,35 +1177,28 @@ public final class Calculadora {
         }
         return this;
       }
-      private int bitField0_;
 
       private int id_ ;
       /**
-       * <code>required int32 id = 1;</code>
-       */
-      public boolean hasId() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public Builder setId(int value) {
-        bitField0_ |= 0x00000001;
+        
         id_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 id = 1;</code>
+       * <code>optional int32 id = 1;</code>
        */
       public Builder clearId() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         id_ = 0;
         onChanged();
         return this;
@@ -1470,50 +1206,44 @@ public final class Calculadora {
 
       private double res_ ;
       /**
-       * <code>required double res = 2;</code>
-       */
-      public boolean hasRes() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required double res = 2;</code>
+       * <code>optional double res = 2;</code>
        */
       public double getRes() {
         return res_;
       }
       /**
-       * <code>required double res = 2;</code>
+       * <code>optional double res = 2;</code>
        */
       public Builder setRes(double value) {
-        bitField0_ |= 0x00000002;
+        
         res_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required double res = 2;</code>
+       * <code>optional double res = 2;</code>
        */
       public Builder clearRes() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         res_ = 0D;
         onChanged();
         return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return this;
       }
 
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
+        return this;
       }
 
 
-      // @@protoc_insertion_point(builder_scope:br.ufc.quixada.calc.Reply)
+      // @@protoc_insertion_point(builder_scope:ufc.sd.calc.Reply)
     }
 
-    // @@protoc_insertion_point(class_scope:br.ufc.quixada.calc.Reply)
+    // @@protoc_insertion_point(class_scope:ufc.sd.calc.Reply)
     private static final ufc.sd.calc.Calculadora.Reply DEFAULT_INSTANCE;
     static {
       DEFAULT_INSTANCE = new ufc.sd.calc.Calculadora.Reply();
@@ -1523,7 +1253,7 @@ public final class Calculadora {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<Reply>
+    private static final com.google.protobuf.Parser<Reply>
         PARSER = new com.google.protobuf.AbstractParser<Reply>() {
       public Reply parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
@@ -1549,15 +1279,15 @@ public final class Calculadora {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_br_ufc_quixada_calc_Request_descriptor;
+    internal_static_ufc_sd_calc_Request_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_br_ufc_quixada_calc_Request_fieldAccessorTable;
+      internal_static_ufc_sd_calc_Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_br_ufc_quixada_calc_Reply_descriptor;
+    internal_static_ufc_sd_calc_Reply_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_br_ufc_quixada_calc_Reply_fieldAccessorTable;
+      internal_static_ufc_sd_calc_Reply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1567,13 +1297,13 @@ public final class Calculadora {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021calculadora.proto\022\023br.ufc.quixada.calc" +
-      "\"\220\001\n\007Request\022\n\n\002id\030\001 \002(\005\022\n\n\002n1\030\002 \002(\001\022\n\n\002" +
-      "n2\030\003 \002(\001\0221\n\002op\030\004 \003(\0162%.br.ufc.quixada.ca" +
-      "lc.Request.Operacao\".\n\010Operacao\022\007\n\003SOM\020\000" +
-      "\022\007\n\003SUB\020\001\022\007\n\003MUL\020\002\022\007\n\003DIV\020\003\" \n\005Reply\022\n\n\002" +
-      "id\030\001 \002(\005\022\013\n\003res\030\002 \002(\001B\032\n\013ufc.sd.calcB\013Ca" +
-      "lculadora"
+      "\n\021calculadora.proto\022\013ufc.sd.calc\"\210\001\n\007Req" +
+      "uest\022\n\n\002id\030\001 \001(\005\022\n\n\002n1\030\002 \001(\001\022\n\n\002n2\030\003 \001(\001" +
+      "\022)\n\002op\030\004 \001(\0162\035.ufc.sd.calc.Request.Opera" +
+      "cao\".\n\010Operacao\022\007\n\003SOM\020\000\022\007\n\003SUB\020\001\022\007\n\003MUL" +
+      "\020\002\022\007\n\003DIV\020\003\" \n\005Reply\022\n\n\002id\030\001 \001(\005\022\013\n\003res\030" +
+      "\002 \001(\001B\032\n\013ufc.sd.calcB\013Calculadorab\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1587,17 +1317,17 @@ public final class Calculadora {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_br_ufc_quixada_calc_Request_descriptor =
+    internal_static_ufc_sd_calc_Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_br_ufc_quixada_calc_Request_fieldAccessorTable = new
+    internal_static_ufc_sd_calc_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_br_ufc_quixada_calc_Request_descriptor,
+        internal_static_ufc_sd_calc_Request_descriptor,
         new java.lang.String[] { "Id", "N1", "N2", "Op", });
-    internal_static_br_ufc_quixada_calc_Reply_descriptor =
+    internal_static_ufc_sd_calc_Reply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_br_ufc_quixada_calc_Reply_fieldAccessorTable = new
+    internal_static_ufc_sd_calc_Reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_br_ufc_quixada_calc_Reply_descriptor,
+        internal_static_ufc_sd_calc_Reply_descriptor,
         new java.lang.String[] { "Id", "Res", });
   }
 
