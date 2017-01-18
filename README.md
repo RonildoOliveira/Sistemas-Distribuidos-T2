@@ -1,4 +1,4 @@
-# Sistemas Distribuidos Trabalho 1 2UFC Campus Quixadá)
+# Sistemas Distribuidos
 
 ## Desenvolvido por:
  - Dieinison Jack
